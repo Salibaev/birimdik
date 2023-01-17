@@ -26,7 +26,7 @@ const Vhod = () =>{
             url: 'http://api.com/birimdik/users',
             params:params
         });
-        console.log('user',user)
+        console.log('user:',user)
         if(user.data.status == 200){
             localStorage.setItem('token',user.data.user[0].id);
             console.log('token',localStorage.getItem('token'));
