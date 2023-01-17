@@ -1,0 +1,335 @@
+@media (max-width: 600px) { /* Стили для устройств с маленьким экраном, размерами 768px - 991px (планшеты и подобные) */
+  .obv{
+    max-height: 250px;
+  }
+  .postbtn{
+    margin-top: '-30px';
+  }
+  .txt7cur{
+    font-size: 10px;
+    
+  }
+  .destext{
+    font-size: 10px;
+  }
+  .location_text{
+    font-size: 10px;
+  }
+  .bt_call{
+   display: block;
+   font-size: 10px;
+   width: 50px;
+   height: 10px;
+   text-align: center;
+   margin-top: -5px;
+  }
+  .bt_call2{
+   display: none;
+  }
+  .meddate{
+    display: none;
+  }
+  .medname{
+   display: none;
+  }
+  .bt_call{
+    display: none;
+  }
+  .sms2{
+    font-size: 18px;
+
+  }
+  .carousel2{
+    height: auto;
+    line-height: 160px;
+    background-color: aqua;
+    }
+    .podcat{
+      margin-top: 0px;
+    }
+  .carimg{
+    width: '100%';
+    height: '100px';
+  }
+  .heart{
+    font-size: 18px;
+
+  }
+  .currency{
+    font-size: 10px;
+  }
+  .location_text{
+    display: none;
+  }
+  .medbody{
+    padding: 5px;
+    top: 0;
+    margin: 0;
+  }
+  .body{
+  background-image: url(https://img5.lalafo.com/i/banners/3c/fe/52/a9307089265a88548a8f29e267.png);
+  background-position-x: center;
+  padding: 0;
+  background-attachment: fixed;
+  z-index: -1; 
+  width: 400px;
+  margin-top: -52px;
+  }
+  /* body{
+    width: 350px;
+  } */
+  /* .html{
+    width: 350px;
+  } */
+  .fix{
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    width: 400px;
+  }
+  .medcategory{
+    display: none;
+  }
+  .medsearch{
+    display: block;
+  }
+  .search2{
+    display: block;
+  }
+
+.navpost{
+  display: none;
+}
+.ds{
+  display: block;
+}
+.none-max-600{
+  display: none;
+}
+.block-max-600{
+  display: block;
+}
+.des{
+  display: none;
+}
+.postimage{
+  display: block;
+  width: 150px;
+  height: 200px;
+}
+.postsms{
+  float: right;
+  margin-top: -30px;
+}
+.imgnone{
+  display: none;
+}
+.userimg3{
+  display: block;
+}
+.userimg4{
+display: none;
+
+}
+.txt7med{
+  color:rgb(10, 19, 49);
+  font-family: 'Ubuntu', sans-serif,inherit;
+  font-size: 26px;
+  font-stretch: 100%;
+  font-style: normal,inherit;
+  font-weight: 700;
+  line-height: 24px;
+  vertical-align: baseline;
+  white-space: nowrap;
+  margin-top: -5px;
+}
+.txt7{
+  color:rgb(10, 19, 49);
+  font-family: 'Ubuntu', sans-serif,inherit;
+  font-size: 16px;
+  font-stretch: 100%;
+  font-style: normal,inherit;
+  font-weight: 700;
+  line-height: 24px;
+  vertical-align: baseline;
+  white-space: nowrap;
+  margin-top: -5px;
+}
+.postcardimg{
+  width: 100%;
+  height: 120px;
+}
+.txt77{
+  color: black;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-size: 12px;
+  margin-top: -30px;
+}
+.cardtext{
+  font-size: 12px;
+  margin-top: -10px;
+  color: gray;
+}
+.carduserimg2{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.datetxt{
+  font-size: 12px;
+  float: right;
+}
+.market{
+  font-size: 30px;
+  color: #ffffff ;
+  font-family: 'Cinzel', serif;
+  position: relative;
+}
+.mobavatar{
+  margin-top: 100px;
+}
+.reg{
+  display: block;
+}
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media (min-width: 600px) { /* Стили для устройств с маленьким экраном, размерами 768px - 991px (планшеты и подобные) */
+    .bt_call{
+     display: none;
+    }
+    .search2{
+      display: none;
+    }
+    .ds{
+      display: none;
+    }
+    .block-max-600{
+      display: none;
+
+    }
+    .cardimg{
+      width: '200px';
+      height: '200px';
+      margin-top: 0px;
+      border-radius: 4px;
+    }
+    .postbtn{
+      margin-top: -20px;
+    }
+    .postimage{
+      display: none;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .margin10{
+      margin-top: -10px;
+    }
+    .userimg{
+      font-size: 26px;
+      color: grey;
+    }
+    
+    .postsms{
+      float: right;
+      margin-top: -25px;
+    }
+    .none-max-600{
+      display: block;
+
+      
+    }
+    .imgnone{
+      display: block;
+    }
+    .userimg3{
+      display: none;
+
+    }
+    .userimg4{
+    display: block;
+
+    }
+    .txt7{
+      color:rgb(10, 19, 49);
+      font-family: 'Ubuntu', sans-serif,inherit;
+      font-size: 16px;
+      font-stretch: 100%;
+      font-style: normal,inherit;
+      font-weight: 700;
+      line-height: 24px;
+      vertical-align: baseline;
+      white-space: nowrap;
+      margin-top: 10px;
+  }
+  .txt77{
+    color: black;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: 14px;
+  }
+  .carduserimg2{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .datetxt{
+    font-size: 16px;
+  }
+  .reg{
+   display: none;
+  }
+  .postcardimg{
+    width: 100%;
+    height: 150px;
+  }
+  .cardimg3{
+    width: 100%;
+    height: 180px;
+  }
+    }
