@@ -38,7 +38,7 @@ import firebase from "firebase";
     return isJpgOrPng && isLt2M;
   };
 
-const Registr = () =>{
+const Newpassword = () =>{
     const [componentSize, setComponentSize] = useState('default');
     const onFormLayoutChange = ({ size }) => {
       setComponentSize(size);
@@ -80,6 +80,7 @@ const Registr = () =>{
     const [numbers, setNumbers] = useState();
     const [code, setCode] = useState();
     const [uid, setUid] = useState();
+    const [uid2, setUid2] = useState(null);
     const [final,setFinal] = useState();
     const [name,setName] = useState(null);
     const [surname,setSurname] = useState(null);
@@ -89,24 +90,24 @@ const Registr = () =>{
     const [product2,setProduct2] = useState(null);
 
 
-    const fetchProduct2 = async () => {
-      const post = {
-        id: numbers,
-    };
-      const data = await axios({
-          method: 'get',
-          params: post,
-          url: 'http://api.com/birimdik/users4'
-      });
-      console.log(data);
-      if (data.data.status == 200) {
-          alert('Такой номер существует');
-      } else {
-          console.log("Error fetch products!");
-          register();
-      }
+  //   const fetchProduct2 = async () => {
+  //     const post = {
+  //       id: numbers,
+  //   };
+  //     const data = await axios({
+  //         method: 'get',
+  //         params: post,
+  //         url: 'http://api.com/birimdik/users4'
+  //     });
+  //     console.log(data);
+  //     if (data.data.status == 200) {
+  //         alert('Такой номер существует');
+  //     } else {
+  //         console.log("Error fetch products!");
+  //         register();
+  //     }
       
-  }
+  // }
   
     const fetchProduct = async () => {
       const post = {
@@ -120,10 +121,12 @@ const Registr = () =>{
       console.log(data);
       if (data.data.status == 200) {
           setProduct2(data.data.users2);
+          setUid(data.data.users2[0].uid);
           localStorage.setItem('token2',product2[0].id);
-          
-          // window.location.href='put_user2/' + product.id;
-          console.log();
+            console.log(uid);
+            if(uid != null){
+              register();
+            }
       } else {
           console.log("Error fetch products!");
   
@@ -150,17 +153,19 @@ const Registr = () =>{
         if(code === null || final === null)
         return;
           final.confirm(code).then((result) =>{
+            setUid2(result);
             console.log('res', result);
-           setUid(result.user.uid);
            setProduct(result);
-           if(uid != null){
-            fetchProduct();
-            reg();
+           
+           console.log('uid',result.user.uid);
+           console.log('uid google',uid2.user.uid);
+           console.log('uid mydb',product2[0].id);
+           localStorage.setItem('number',numbers);
+           if(result.user.uid === uid){
+           window.location.href='/registr2/' + product2[0].id;
            }
           
-           console.log('uid',uid);
-           localStorage.setItem('number',numbers);
-          //  window.location.href="registr2";
+           
           }).catch((err) => {
             console.log('err',err);
           })
@@ -194,12 +199,9 @@ const Registr = () =>{
         console.log(data)
         if(data != null){
             if(data.status  == 200){
-            console.log(product2[0].id)
+            console.log(data)
             // window.location.href="userinfo";
-            if(product2[0].id != null){
-              window.location.href='registr2/' + product2[0].id;
-            }
-            
+            window.location.href='registr2/' + product[0].id;
             }else{
                 alert('Такой номер существует')
             }
@@ -221,7 +223,7 @@ const Registr = () =>{
 <div class="col-md-4 card mt-5">
     <div class="row ">
     <div className='col-md-12 '>
-        <h2 style={{color:'#2d2d7f'}}>Регистрация</h2>
+        <h2 style={{color:'#2d2d7f'}}>Восстановления пароля</h2>
     </div>        
 <div className="col-md-4 col-12 text-center">
 {/* <p className="mobavatar" >Аватар</p> */}
@@ -277,7 +279,7 @@ const Registr = () =>{
 
     <div className="col-md-12 text-center mt-3">
       <label>
-        Номер телефона: 
+      Пароль будет отправлен на email или номер телефона, указанные при регистрации 
       </label>
     </div>
     <div className="col-md-2">
@@ -343,7 +345,7 @@ const Registr = () =>{
 
 <div className="col-md-12 mt-3">
       <Form.Item >
-        <Button type="primary" style={{float:'right'}} onClick={fetchProduct2} >OK</Button>
+        <Button type="primary" style={{float:'right'}} onClick={fetchProduct} >OK</Button>
       </Form.Item>
       </div>
       <div className="col-md-12">
@@ -368,4 +370,4 @@ const Registr = () =>{
         </>
     )
 }
-export default Registr;
+export default Newpassword;

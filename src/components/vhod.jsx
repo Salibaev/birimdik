@@ -91,8 +91,29 @@ const Vhod = () =>{
         ]}
       >
         <Input.Password onChange={(e) =>{setPassword(e.target.value)}} />
+        <div className="row">
+          <div className="col-md-12">
+            <label style={{color:'red',float:'right'}}><a href="newpassword">Забыли пароль?</a></label>
+          </div>
+
+        <div className="col-md-3 mt-2">
+            <img src="https://img.freepik.com/free-icon/google_318-278809.jpg" style={{width:'40px',height:'40px'}}></img>
+          </div>
+          <div className="col-md-3 mt-2">
+            <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-facebook-social-media-icon-png-image_6315968.png" style={{width:'40px',height:'40px'}}></img>
+          </div>
+          <div className="col-md-3 mt-2">
+            <img src="https://cdn-icons-png.flaticon.com/512/3938/3938028.png" style={{width:'40px',height:'40px'}}></img>
+          </div>
+          <div className="col-md-3 mt-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Ok_new_logo.png?20150213095340" style={{width:'40px',height:'40px'}}></img>
+          </div>
+
+          </div>
         <div className="col-md-12 text-center ml-5 mt-2">
-      <b className="text-primary"><a>У вас нет аккаунта?</a></b>
+          
+        
+      <b  className="text-primary"><a href="/registr">У вас нет аккаунта?</a></b>
       </div>
       </Form.Item>
 
@@ -119,6 +140,7 @@ const Vhod = () =>{
       </Form.Item>
       
     </Form>
+    
             </div>
 
            

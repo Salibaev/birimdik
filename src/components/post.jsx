@@ -256,7 +256,7 @@ const fetchRecommends = async () =>{
                                             }}
                                             width='100%'
                                             height='100%'
-                                            src={product.images != null ? ('http://api.com/birimdik/uploads/'+ product[0].images) : ('http://api.com/birimdik/uploads/'+ 'no_image3.png')}
+                                            src={('http://api.com/birimdik/uploads/'+ product[0].images) != null ? ('http://api.com/birimdik/uploads/'+ product[0].images) : ('http://api.com/birimdik/uploads/'+ 'no_image3.png')}
                                             onClick={() => setVisible(true)}
                                         />
                                         <div 

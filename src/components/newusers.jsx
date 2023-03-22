@@ -14,7 +14,7 @@ import Post_lk_ak from './post_lk_ak';
 
 const Userinfo = ()=>{
     const params = useParams();
-    const user_id = localStorage.getItem('token2');
+    const user_id = localStorage.getItem('token');
     const [neaktiv, setNeaktiv] = useState(null);
     const [status2, setStatus2] = useState(null);
     const [products, setProducts] = useState(null);
@@ -227,8 +227,8 @@ const delfavorites = async (ad_id)=>{
                   </div>
 
                   <div className='col-md-12'>
-                    <p style={{color:'grey'}}>Uid</p>
-                    <label style={{maxHeight:'40px',overflow:'scroll'}} className='card'>{product[0].uid}</label>
+                    <p style={{color:'grey'}}>Пол</p>
+                    <label className='card'>Не указано</label>
                   </div>
 
                   

@@ -34,6 +34,9 @@ import Post_lk from './components/post_lk';
 import Put_user from './components/put_user';
 import User from './components/user';
 import Registrmob from './components/registrmob';
+import Put_user2 from './components/put_user2';
+import Registr2 from './components/registr2';
+import Newpassword from './components/newpassword';
 
 
 
@@ -62,6 +65,7 @@ function App() {
       <Route path = '/post3' element ={<Post3/>}/>
       <Route path = '/post_lk' element ={<Post_lk/>}/>
       <Route path = '/registr' element ={<Registr/>}/>
+      <Route path = '/registr2/:token2' element ={<Registr2/>}/>
       <Route path = '/registrmob' element ={<Registrmob/>}/>
       <Route path = '/user/:id' element ={<User/>}/>
       <Route path = '/new_post' element ={<New_post/>}/>
@@ -71,13 +75,15 @@ function App() {
       <Route path = '/mainsms' element ={<Mainsms/>}/>
       <Route path = '/menuhover' element ={<Menuhover/>}/>
       <Route path = '/transport' element ={<Transport/>}/>
-      <Route path = '/upload1' element ={<Upload1/>}/>
+      <Route path = '/upload1/:id' element ={<Upload1/>}/>
       <Route path = '/podcategory/:name/:id' element ={<Podcategory/>}/>
       <Route path = '/nedvij/:id' element ={<Nedvij/>}/>
       <Route path = '/result/:text' element ={<Result1/>}/>
       <Route path = '/filter_city' element ={<Filter_city/>}/>
       <Route path = '/put_ad/:id' element ={<Put_ad/>}/>
       <Route path = '/put_user' element ={<Put_user/>}/>
+      <Route path = '/put_user2/:number' element ={<Put_user2/>}/>
+      <Route path = '/newpassword' element ={<Newpassword/>}/>
       </Routes>
       </Router>
 

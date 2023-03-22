@@ -83,7 +83,7 @@ return(
                     <li>
                     {logged ?
                       <>
-              <a  href='/upload1'> Подать обьявление </a>
+              <a  href={'/upload1/'+ 0}> Подать обьявление </a>
 
                       </>
                       :<>
