@@ -1,7 +1,7 @@
 import { Upload, Modal } from "antd";
 import { InboxOutlined } from '@ant-design/icons';
 import { React, useState } from "react";
-import { AppImage } from "./custom_components";
+import AppImage from "./app_image";
 
 const { Dragger } = Upload;
 
@@ -26,7 +26,8 @@ const DragAndDropUploader = ({ style, className, onChange, onRemove, multiple = 
             file.preview = await getBase64(file.originFileObj);
         }
 
-        setPreviewImage(file.url  file.url.substring(file.url.lastIndexOf('/') + 1));
+        setPreviewImage(file.url || file.url.substring(file.url.lastIndexOf('/') + 1));
+        setPreviewImage(file.url || file.preview);
         setPreviewVisible(true);
     };
 

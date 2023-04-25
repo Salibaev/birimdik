@@ -318,6 +318,34 @@ const Podcategory = () => {
                 // window.location.href=""+ id;
             }
         }
+        if(city == "Все" && models != "Все" && id == 2 && currency != "Все"){
+
+            const post = {
+                id: parseInt(priceot),
+                id1: parseInt (pricedo),
+                id2:city,
+                id3:id,
+                id4:models,
+                id5:parent_id,
+                id6:buy_sell,
+                id7:currency,
+            };
+
+            const data = await axios({
+                method: 'get',
+                params: post,
+                url: 'http://api.com/birimdik/models_city_currency'
+            });
+
+            if (data.data.status == 200) {
+                setProduct(data.data.post);
+                console.log('data', data)
+            }else {
+                console.log("Error fetch products!");
+                console.log(data);
+                // window.location.href=""+ id;
+            }
+        }
         if(city != 'Все' && models == "Все" && id == 2 ){
             const post = {
                 id: parseInt(priceot),

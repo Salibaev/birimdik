@@ -6,7 +6,7 @@ import { Image } from 'antd';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLikes } from '../redux/actions/like_actions';
-
+import moment from 'moment';
 const Post2 = ({ product }) => {
     const dispatch = useDispatch();
     const user_id = localStorage.getItem('token');
@@ -202,7 +202,7 @@ const Post2 = ({ product }) => {
 
                                         </div>
                                         <div class="col-md-3 meddate">
-                                            <label style={{ fontSize: '10px', float: 'right', marginRight: '-15px' }} class="text-secondary meddate">{product.date1}</label>
+                                            <label style={{ fontSize: '10px', float: 'right', marginRight: '-15px' }} class="text-secondary meddate">{moment(product.date1, "YYYY-MM-DD HH:mm:ss").calendar()}</label>
                                         </div>
 
                                         <div className='postbtn'>

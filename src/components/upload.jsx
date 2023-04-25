@@ -10,26 +10,7 @@ import { useEffect } from "react";
 import { Option } from "antd/lib/mentions";
 import { useParams } from "react-router-dom";
 import { Cascader } from 'antd';
-
-// const handleChange = (value) => {
-//   console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
-// };
-// const getBase64 = (img, callback) => {
-//   const reader = new FileReader();
-//   reader.addEventListener('load', () => callback(reader.result));
-//   reader.readAsDataURL(img);
-// };
-// const beforeUpload = (file) => {
-//   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-//   if (!isJpgOrPng) {
-//     message.error('You can only upload JPG/PNG file!');
-//   }
-//   const isLt2M = file.size / 1024 / 1024 < 2;
-//   if (!isLt2M) {
-//     message.error('Image must smaller than 2MB!');
-//   }
-//   return isJpgOrPng && isLt2M;
-// };
+import DragAndDropUploader from "./Drag_And_Drop_Uploader";
 
 const options = [
   {
@@ -75,37 +56,6 @@ const Upload1 = () => {
   const params = useParams();
   const [id, setId] = useState(params.id);
 
-
-  // const [loading, setLoading] = useState(false);
-  // const [imageUrl, setImageUrl] = useState();
-  // const handleChange = (info) => {
-  //   if (info.file.status === 'uploading') {
-  //     setLoading(true);
-  //     return;
-  //   }
-  //   if (info.file.status === 'done') {
-  //     // Get this url from response in real world.
-  //     getBase64(info.file.originFileObj, (url) => {
-  //       setLoading(false);
-  //       setImageUrl(url);
-  //     });
-  //   }
-  // };
-
-
-
-  // const uploadButton = (
-  //   <div>
-  //     {loading ? <LoadingOutlined /> : <PlusOutlined />}
-  //     <div
-  //       style={{
-  //         marginTop: 8,
-  //       }}
-  //     >
-  //       Upload
-  //     </div>
-  //   </div>
-  // );
   const userid = localStorage.getItem('token');
   const [location, setLocation] = useState();
   const [descriptions, setDescriptions] = useState();
@@ -122,6 +72,7 @@ const Upload1 = () => {
   const [subCategories3, setSubcategories3] = useState();
   const [podcategories, setPodcategories] = useState();
   const [models, setModels] = useState();
+  const [files, setFiles] = useState([]);
   const [buy_sell, setBuy_sell] = useState();
   const [image1, setImage1] = useState('no_image3.png');
   const [image2, setImage2] = useState('no_image3.png');
@@ -137,13 +88,13 @@ const Upload1 = () => {
     const form = new FormData();
 
     form.append('location', location);
-    form.append('images', images);
-    form.append('image1', image1);
-    form.append('image2', image2);
-    form.append('image3', image3);
-    form.append('image4', image4);
-    form.append('image5', image5);
-    form.append('image6', image6);
+    form.append('images', files[0]);
+    form.append('image1', files[1]);
+    form.append('image2', files[2]);
+    form.append('image3', files[3]);
+    form.append('image4', files[4]);
+    form.append('image5', files[5]);
+    form.append('image6', files[6]);
     form.append('price', price);
     form.append('numbers', numbers);
     form.append('descriptions', descriptions);
@@ -152,7 +103,7 @@ const Upload1 = () => {
     form.append('currency', currency);
     form.append('userid', userid);
     form.append('city', city);
-    form.append('podcategories', parseInt(podcategories) );
+    form.append('podcategories', parseInt(podcategories));
     form.append('models', models);
     form.append('buy_sell', buy_sell);
 
@@ -177,7 +128,7 @@ const Upload1 = () => {
   }
   const fetchCategory = async (id) => {
     const params = {
-      id:id
+      id: id
     }
     const data = await axios({
       method: 'get',
@@ -194,7 +145,7 @@ const Upload1 = () => {
   }
   const fetchCategory2 = async (id) => {
     const params = {
-      id:id
+      id: id
     }
     const data = await axios({
       method: 'get',
@@ -212,7 +163,7 @@ const Upload1 = () => {
   }
   const fetchCategory3 = async (id) => {
     const params = {
-      id:id
+      id: id
     }
     const data = await axios({
       method: 'get',
@@ -299,65 +250,29 @@ const Upload1 = () => {
                 <h5>Разместите БЕСПЛАТНОЕ обьявление</h5>
               </div>
               <div className='col-md-12'>
-                <p><b>Загрузите фото</b>(до 10)</p>
+                <p><b>Загрузите фото</b>(до 7)</p>
                 <div className="row">
                   <div className="col-md-3">
-                    {/* <Upload
-                      name="avatar"
-                      listType="picture-card"
-                      className="avatar-uploader"
-                      showUploadList={false}
-                      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                      beforeUpload={beforeUpload}
-                      onChange={handleChange}
-                    >
-                      {imageUrl ? (
-                        <img
-                          src={imageUrl}
-                          alt="avatar"
-                          style={{
-                            width: '100%',
-                          }}
-                        />
-                      ) : (
-                        uploadButton
-                      )}
-                    </Upload>
-
+                 
                   </div>
-                  <div className="col-md-2">
-                    <Upload
-                      name="avatar"
-                      listType="picture-card"
-                      className="avatar-uploader"
-                      showUploadList={false}
-                      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                      beforeUpload={beforeUpload}
-                      onChange={handleChange}
-                    >
-                      {imageUrl ? (
-                        <img
-                          src={imageUrl}
-                          alt="avatar"
-                          style={{
-                            width: '100%',
-                          }}
-                        />
-                      ) : (
-                        uploadButton
-                      )}
-                    </Upload> */}
-
-                  </div>
+                </div >
+                <div className="col-md-12">
+                <DragAndDropUploader
+                  className="mb-3 p-2"
+                  style={{width:'100%',height:'100px'}}
+                  onChange={(file) => {
+                    setFiles([...files, file]);
+                  }}
+                  onRemove={(f) => {
+                    const index = files.indexOf(f);
+                    if (index !== -1) {
+                      const f = files.splice(index, 1);
+                      setFiles(f);
+                    }
+                  }}
+                />
                 </div>
-                <input type={'file'} name="images" onChange={(e) => { setImages(e.target.files[0]) }} />
-                <input type={'file'} name="image1" onChange={(e) => { setImage1(e.target.files[0]) }} />
-                <input type={'file'} name="image2" onChange={(e) => { setImage2(e.target.files[0]) }} />
-                <input type={'file'} name="image3" onChange={(e) => { setImage3(e.target.files[0]) }} />
-                <input type={'file'} name="image4" onChange={(e) => { setImage4(e.target.files[0]) }} />
-                <input type={'file'} name="image5" onChange={(e) => { setImage5(e.target.files[0]) }} />
-                <input type={'file'} name="image6" onChange={(e) => { setImage6(e.target.files[0]) }} />
-
+                
 
                 <h5>Описание</h5>
                 <TextArea id="descriptions" name="descriptions" onChange={(e) => { setDescriptions(e.target.value) }} rows={4} placeholder="Описание" maxLength={300} />
@@ -391,7 +306,7 @@ const Upload1 = () => {
                             }
                             </> : <></>
                           }
-                           
+
                         </Select>
                       </div>
                     </>
@@ -409,13 +324,13 @@ const Upload1 = () => {
                             }
                             </> : <></>
                           }
-                           
+
                         </Select>
                       </div>
                     </>
                     : <></>
                   }
-                   {custom3 ?
+                  {custom3 ?
                     <>
                       <div className="col-md-3 mt-3">
                         <Select onChange={onChange4} defaultValue='Модели' style={{ width: '100%' }}>
@@ -427,7 +342,7 @@ const Upload1 = () => {
                             }
                             </> : <></>
                           }
-                           
+
                         </Select>
                       </div>
                     </>

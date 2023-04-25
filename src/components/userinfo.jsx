@@ -148,7 +148,7 @@ const delfavorites = async (ad_id)=>{
             <div class="col-md-12"> 
                 <div class="row mt-2">
                 <div className='col-md-12'>
-                <Tabs defaultActiveKey="1">
+                <Tabs defaultActiveKey="2">
                 
     <Tabs.TabPane  className='row' tab={tab1} key="1">
     <h5>Профиль</h5>
@@ -545,7 +545,45 @@ const delfavorites = async (ad_id)=>{
     </Tabs.TabPane>
 
     <Tabs.TabPane className='row' tab={tab7} key="7">
-      Content of Tab Pane 2
+      <div className='container'>
+        <div className='row'>
+            <div className='col-md-12'>
+                <h2>Кошелек</h2>
+            </div>
+            <div className='col-md-6'>
+                <h5>Кошелек - ваш персональный баланс на Birimdik.ru Пополняйте ваш Кошелек любым удобным способом и платите за услуги, не выходя из дома!</h5>
+            </div>
+
+            <div className='col-md-12'>
+                <label style={{fontSize:'18px'}}>Выберите сумму пополнения:</label>
+            </div>
+
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>3000 KGS</label>
+            </div>
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>2000 KGS</label>
+            </div>
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>1000 KGS</label>
+            </div>
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>500 KGS</label>
+            </div>
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>300 KGS</label>
+            </div>
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>200 KGS</label>
+            </div>
+            <div className='col-md-12'>
+              <input type='radio'></input> <label style={{fontSize:'18px'}}>150 KGS</label>
+            </div>
+            <div className='col-md-12'>
+                <button className='btn btn-primary'>Пополнить</button>
+            </div>
+        </div>
+      </div>
     </Tabs.TabPane>
 
   </Tabs>

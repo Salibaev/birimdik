@@ -42,6 +42,7 @@ const Registr2 = () =>{
     const [image_name,setImage_name] = useState('no_image.jpg');
     const number = localStorage.getItem('number');
     const user_id = localStorage.getItem('token2');
+    const login_token = localStorage.getItem('login');
 
     const fetchProduct = async () => {
       const post = {
@@ -91,6 +92,33 @@ const Registr2 = () =>{
     }   
 }
 
+const fetchProduct3 = async () => {
+  const post = {
+      id: login_token,
+  };
+  const data = await axios({
+      method: 'get',
+      params: post,
+      url: 'http://api.com/birimdik/users_login'
+  });
+  console.log(data);
+  if (data.data.status == 200) {
+      setProduct(data.data.users_login);
+      setLogin(data.data.users_login[0].login);
+      setPassword(data.data.users_login[0].password);
+      setAvatar(data.data.users_login[0].avatar);
+      setNumbers(data.data.users_login[0].numbers);
+      setName(data.data.users_login[0].name);
+      setSurname(data.data.users_login[0].surname);
+      setCity(data.data.users_login[0].city);
+      setImage_name(data.data.users_login[0].avatar);
+  } else {
+      console.log("Error fetch products!");
+
+  }   
+}
+
+
   const reg = async ()=>{
 if(password == password2){
   const form = new FormData();
@@ -129,6 +157,7 @@ if(password == password2){
     
 
     useEffect(()=>{
+      fetchProduct3();
       fetchProduct2();
       fetchProduct();
     },[])

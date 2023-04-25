@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
+import 'moment/locale/ru';
 import Main from './components/main';
 import Nav from './components/navbar';
 import Footer from './components/footer';
@@ -37,6 +38,8 @@ import Registrmob from './components/registrmob';
 import Put_user2 from './components/put_user2';
 import Registr2 from './components/registr2';
 import Newpassword from './components/newpassword';
+import Panel from './components/panel';
+import Admin from './components/admin';
 
 
 
@@ -84,6 +87,8 @@ function App() {
       <Route path = '/put_user' element ={<Put_user/>}/>
       <Route path = '/put_user2/:number' element ={<Put_user2/>}/>
       <Route path = '/newpassword' element ={<Newpassword/>}/>
+      <Route path = '/panel' element ={<Panel/>}/>
+      <Route path = '/panel/admin' element ={<Admin/>}/>
       </Routes>
       </Router>
 

@@ -37,6 +37,7 @@ const Nav =()=>{
 
   const LogOut = ()=>{
     localStorage.removeItem('token');
+    localStorage.removeItem('token2');
     setLogged(false);
     window.location.href="/";
 }
@@ -104,10 +105,26 @@ return(
 } 
             </li>
             <li>
-            <a href='registr' ><Button  ghost  type="solid " >   <a style={{color:'white'}} href='registr'>Регистрация</a> </Button></a>
+              {logged ? <>
+                        </>
+                          :
+                        <>
+                          <a href='registr' ><Button  ghost  type="solid " >   <a style={{color:'white'}} href='registr'>Регистрация</a> </Button></a>
+
+                        </>
+              }
             </li>
             <li>
+            {logged ? <>
               <a href='/userinfo'><Button   ghost   type="solid " >   <a style={{color:'white'}} href='/userinfo'>Личный кабинет</a> </Button></a>
+
+                        </>
+                          :
+                        <>
+              <a href='/vhod'><Button   ghost   type="solid " >   <a style={{color:'white'}} href='/vhod'>Личный кабинет</a> </Button></a>
+
+                        </>
+              }
             </li>
             <li>
               <a href='/userinfo'><Button   ghost   type="solid " >   <a style={{color:'white'}} href='/userinfo'>Язык</a> </Button></a>
